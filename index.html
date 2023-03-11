@@ -6,7 +6,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="container"></div>
+    <div id "stocks" class="container"></div>
     <canvas id="chart" width="400" height="400"></canvas>
     <button style="position: fixed; top: 10px; right: 10px; background-color: #4CAF50;
     color: white; padding: 10px 20px;
@@ -20,6 +20,7 @@
         const coins = ['bitcoin', 'tether', 'ethereum', 'litecoin', 'cardano', 'dogecoin'];
 
         function fetchCoinData(coin) {
+            document.getElementById("stocks").hidden+true;
             return fetch(`https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=usd&days=7`)
                 .then(response => response.json())
                 .then(data => {
